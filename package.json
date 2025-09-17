@@ -1,0 +1,20 @@
+{
+  "name": "vulnerable-sample-app",
+  "version": "1.0.0",
+  "description": "Sample package.json for testing SAST/dependency scanners",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "lodash": "4.17.19",           // Known prototype pollution issue (CVE-2020-8203) – fixed in >=4.17.21
+    "express": "4.16.0",           // Older version with multiple advisories
+    "jquery": "3.4.0",             // XSS issues in <3.5.0
+    "minimist": "0.0.8",           // Prototype pollution (CVE-2020-7598)
+    "debug": "2.6.8",              // Regular expression DoS in older versions
+    "handlebars": "4.0.10"         // Prototype pollution (CVE-2019-19919) fixed later
+  },
+  "devDependencies": {
+    "gulp": "3.9.1"                // Deprecated & had known security issues
+  }
+}
